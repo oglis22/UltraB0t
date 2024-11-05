@@ -4,6 +4,8 @@ import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
+import java.util.Random;
+
 public class MessageReciveListener extends ListenerAdapter {
 
     @Override
@@ -14,7 +16,7 @@ public class MessageReciveListener extends ListenerAdapter {
          }
 
         //Who asked
-        if (event.getAuthor().getId().equals("772226536870117387")) {
+        if (event.getAuthor().getId().equals("772226536870117387") || event.getAuthor().getId().equals("771753261745176587")) {
             event.getChannel().sendMessage("Wer?").queue();
         }
 
@@ -23,7 +25,11 @@ public class MessageReciveListener extends ListenerAdapter {
             String[] arr = event.getMessage().getContentRaw().split("-");
             String name = arr[1];
 
-            String[] disses = {"name%", "asdasd"};
+            String[] disses = {"%name% du bist der Grund warum sogar mein Wlan Ruter eine pause braucht", "Selbst google hat keine Antworten was %name% von sich gibt"};
+
+            int randomIndex = (int) (Math.random() * disses.length);
+
+            event.getChannel().sendMessage(disses[randomIndex].replace("%name%", name)).queue();
 
         }
 
