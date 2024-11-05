@@ -12,7 +12,7 @@ public class MessageReciveListener extends ListenerAdapter {
     public void onMessageReceived(MessageReceivedEvent event) {
         //Who is the coolest
         if (event.getMessage().getContentRaw().equals("Wer ist der coolste?")){
-             event.getChannel().sendMessage("Qtiix und Oglis sind natürlich die coolsten nicht so wie Ludwig!").queue();
+             event.getChannel().sendMessage("Qtiix und Oglis sind natürlich die coolsten").queue();
          }
 
         //Who asked
